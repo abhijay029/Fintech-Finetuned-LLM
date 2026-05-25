@@ -23,7 +23,7 @@ model = AutoModelForCausalLM.from_pretrained(MODEL_PATH, torch_dtype=torch.float
 app = FastAPI()
 
 origins = [
-    "http://localhost:5173",
+    "https://fintech-finetuned-llm.vercel.app",
 ]
 
 
