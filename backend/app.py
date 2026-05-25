@@ -5,6 +5,7 @@ AutoTokenizer,
 AutoModelForCausalLM
 )
 import torch
+from fastapi.middleware.cors import CORSMiddleware
 
 model_path = "model/fine_tuned_model"
 
@@ -13,6 +14,19 @@ tokenizer = AutoTokenizer.from_pretrained(model_path)
 model = AutoModelForCausalLM.from_pretrained(model_path, torch_dtype=torch.float16, device_map="auto")
 
 app = FastAPI()
+
+origins = [
+    "http://localhost:5173",
+]
+
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 class PromptRequest(BaseModel):
     prompt: str
