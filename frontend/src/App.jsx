@@ -4,10 +4,10 @@ import "./App.css";
 function App() {
   const [prompt, setPrompt] = useState("");
   const [response, setResponse] = useState("");
-
+  const API_URL = import.meta.env.VITE_API_URL;
   const generateResponse = async () => {
     const res = await axios.post(
-    "fintech-finetuned-llm-production.up.railway.app:8000/generate",
+    `${API_URL}/generate`,
     {
       prompt: prompt
     }
