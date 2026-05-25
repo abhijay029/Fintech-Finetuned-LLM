@@ -6,8 +6,15 @@ AutoModelForCausalLM
 )
 import torch
 from fastapi.middleware.cors import CORSMiddleware
+import os
 
-model_path = "model/fine_tuned_model"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+MODEL_PATH = os.path.join(
+    BASE_DIR,
+    "model",
+    "fine_tuned_model"
+)
 
 tokenizer = AutoTokenizer.from_pretrained(model_path)
 
