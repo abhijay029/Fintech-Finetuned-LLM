@@ -7,7 +7,7 @@ function App() {
 
   const generateResponse = async () => {
     const res = await axios.post(
-    "http://127.0.0.1:8000/generate",
+    "fintech-finetuned-llm-production.up.railway.app:8000/generate",
     {
       prompt: prompt
     }
