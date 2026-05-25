@@ -16,9 +16,9 @@ MODEL_PATH = os.path.join(
     "fine_tuned_model"
 )
 
-tokenizer = AutoTokenizer.from_pretrained(model_path)
+tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH)
 
-model = AutoModelForCausalLM.from_pretrained(model_path, torch_dtype=torch.float16, device_map="auto")
+model = AutoModelForCausalLM.from_pretrained(MODEL_PATH, torch_dtype=torch.float16, device_map="auto")
 
 app = FastAPI()
 
