@@ -49,8 +49,7 @@ async def generate_text(data: PromptRequest):
     print("Inputs: ",inputs)
 
     outputs = model.generate(
-    **inputs,
-    max_new_tokens = 100
+    **inputs
     )
 
     print("Output:",outputs)
